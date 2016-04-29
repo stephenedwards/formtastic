@@ -101,6 +101,10 @@ module Formtastic
         self.multipart = options[:html][:multipart]
       end
     end
+    
+    def spatial_field(object_name, method, options = {})
+      @template.tag(:input, :type => "text", :value => @object[method].as_text, :name => "#{object_name}[#{method}]", :id => "#{object_name}_#{method}")
+    end
 
   end
 
