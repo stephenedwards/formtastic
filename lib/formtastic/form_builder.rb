@@ -103,7 +103,7 @@ module Formtastic
     end
     
     def spatial_field(object_name, method, options = {})
-      @template.tag(:input, :type => "text", :value => @object[method].as_text, :name => "#{object_name}[#{method}]", :id => "#{object_name}_#{method}")
+      @template.tag(:input, :type => "text", :value => (!@object[method].nil? ? @object[method].as_text : nil), :name => "#{object_name}[#{method}]", :id => "#{object_name}_#{method}")
     end
 
   end
